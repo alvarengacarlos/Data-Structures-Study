@@ -15,7 +15,10 @@ __Note__: For compile the codes and run them, you should execute the commands in
 |Selection Sort|`gcc src/util/array-util.c src/selection-sort.c -o ./bin/selection-sort.exe`|
 |Insertion Sort|`gcc src/util/array-util.c src/insertion-sort.c -o ./bin/insertion-sort.exe`|
 
-### __Other__
+### __Technique__
+|Technique Name|Command to Compile|
+|:---|:---|
+|Abstract Data Type|`gcc src/abstract-data-type/cube.c src/abstract-data-type/main.c -o bin/adt-cube.exe`|`./bin/adt-cube.exe`|
 
 ## __References__
 Backes, André Ricardo. Estrutura de Dados descomplicada: em linguagem C. 1. ed - Rio de Janeiro: Elsevier, 2016
