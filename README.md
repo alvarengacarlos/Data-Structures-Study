@@ -20,5 +20,10 @@ __Note__: For compile the codes and run them, you should execute the commands in
 |:---|:---|
 |Abstract Data Type|`gcc src/abstract-data-type/cube.c src/abstract-data-type/main.c -o bin/adt-cube.exe`|`./bin/adt-cube.exe`|
 
+### __Lists__
+|Name|Command to Compile|
+|:---|:---|
+|Static List|`gcc ./src/list/static/main.c ./src/list/static/static-list.c  -o ./bin/static-list.exe`|
+
 ## __References__
 Backes, André Ricardo. Estrutura de Dados descomplicada: em linguagem C. 1. ed - Rio de Janeiro: Elsevier, 2016
