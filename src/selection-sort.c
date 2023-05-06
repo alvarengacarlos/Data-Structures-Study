@@ -1,5 +1,7 @@
-#include "./util/array-util.h"
+#include <stdio.h>
 
+void populateArray(int *array, int size);
+void writeArray(int *array, int size, char *message);
 void selectionSort(int *elements , int size);
 
 int main() {
@@ -11,6 +13,22 @@ int main() {
     writeArray(elements, arraySize, "After Sort");
 
     return 1;
+}
+
+void populateArray(int *array, int size) {
+    int value = size;
+    for(int i=0; i<size; i++) {
+        array[i] = value--;
+    }
+}
+
+void writeArray(int *array, int size, char *message) {    
+    printf("%s\n", message);
+    printf("[");
+    for (int i=0; i<size; i++) {
+        printf(" %i ", array[i]);        
+    }    
+    printf("]\n");
 }
 
 void selectionSort(int *elements , int size) {

@@ -11,8 +11,8 @@ __Note__: For compile the codes and run them, you should execute the commands in
 ### __Sort__
 |Algorithm Name|Command to Compile|
 |:---|:---|
-|Bubble Sort|`gcc src/util/array-util.c src/bubble-sort.c -o ./bin/bubble-sort.exe`|
-|Selection Sort|`gcc src/util/array-util.c src/selection-sort.c -o ./bin/selection-sort.exe`|
+|Bubble Sort|`gcc src/bubble-sort.c -o ./bin/bubble-sort.exe`|
+|Selection Sort|`gcc src/selection-sort.c -o ./bin/selection-sort.exe`|
 |Insertion Sort|`gcc src/util/array-util.c src/insertion-sort.c -o ./bin/insertion-sort.exe`|
 
 ### __Technique__
@@ -24,6 +24,7 @@ __Note__: For compile the codes and run them, you should execute the commands in
 |Name|Command to Compile|
 |:---|:---|
 |Static List|`gcc ./src/list/static/main.c ./src/list/static/static-list.c  -o ./bin/static-list.exe`|
+|Dynamic List|`gcc ./src/list/dynamic/main.c ./src/list/dynamic/dynamic-list.c  -o ./bin/dynamic-list.exe`|
 
 ## __References__
 Backes, André Ricardo. Estrutura de Dados descomplicada: em linguagem C. 1. ed - Rio de Janeiro: Elsevier, 2016
