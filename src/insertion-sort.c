@@ -5,8 +5,8 @@ void writeArray(int *array, int size, char *message);
 void insertionSort(int *elements , int size);
 
 int main() {
-    const int arraySize = 6;
-    int elements[arraySize];
+    const int arraySize = 4;
+    int elements[4];
     populateArray(elements, arraySize);
     writeArray(elements, arraySize, "Before Sort");
     insertionSort(elements, arraySize);
@@ -31,14 +31,13 @@ void writeArray(int *array, int size, char *message) {
     printf("]\n");
 }
 
-void insertionSort(int *elements , int size) {
-    for (int i=1; i<size; i++) {
-        for (int j=0; j<i; j++) {
-            if (elements[j] > elements[i]) {
-                int help = elements[j];
-                elements[j] = elements[i];
-                elements[i] = help;
-            }     
-        }        
+void insertionSort(int *elements , int size) {  
+    int j, i;
+    for (i=1; i<size; i++) {
+      int current = elements[i];
+      for (j=i; (j>0) && (current < elements[j-1]); j--) {
+        elements[j] = elements[j-1];
+      }
+      elements[j] = current;
     }
 }
