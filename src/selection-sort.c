@@ -33,12 +33,15 @@ void writeArray(int *array, int size, char *message) {
 
 void selectionSort(int *elements , int size) {
     for (int i=0; i<size; i++) {
+        //search minor element
         int positionOfTheMinorElement = i;
         for (int j=(i+1); j<size; j++) {
-            if (elements[j] < elements[i]) {
+            if (elements[j] < elements[positionOfTheMinorElement]) {
                 positionOfTheMinorElement = j;
             }            
         }
+
+        //if minor element is found, then, make the change
         if (positionOfTheMinorElement != i) {
                 int help = elements[positionOfTheMinorElement];
                 elements[positionOfTheMinorElement] = elements[i];
