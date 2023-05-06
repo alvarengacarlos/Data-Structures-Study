@@ -6,24 +6,24 @@ struct cube {
     float edge;    
 };
 
-Cube* buildCube(float edge) {
-    Cube *cube = (Cube*) malloc(sizeof(Cube));
+struct cube* buildCube(float edge) {
+    struct cube *cube = (struct cube*) malloc(sizeof(struct cube));
     if (cube == NULL)
-        exit(-1);
+        exit(1);
 
     cube->edge = edge;    
 
     return cube;
 }
 
-float area(Cube *cube) {
+float area(struct cube *cube) {
     return (cube->edge * cube->edge) * 6;
 }
 
-float volume(Cube *cube) {
+float volume(struct cube *cube) {
     return cube->edge * cube->edge * cube->edge;
 }
 
-void destroyCube(Cube *cube) {
+void destroyCube(struct cube *cube) {
     free(cube);
 }

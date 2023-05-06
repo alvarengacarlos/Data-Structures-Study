@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void populateArray(int *array, int size);
-void writeArray(int *array, int size, char *message);
-void insertionSort(int *elements , int size);
+void populateArray(int *array, size_t size);
+void writeArray(int *array, size_t size, char *message);
+void insertionSort(int *elements , size_t size);
 
 int main() {
     const int arraySize = 4;
@@ -15,23 +15,24 @@ int main() {
     return 1;
 }
 
-void populateArray(int *array, int size) {
-    int value = size;
-    for(int i=0; i<size; i++) {
+void populateArray(int *array, size_t size) {
+    int i, value = size;
+    for(i=0; i<size; i++) {
         array[i] = value--;
     }
 }
 
-void writeArray(int *array, int size, char *message) {    
+void writeArray(int *array, size_t size, char *message) {    
+    int i;
     printf("%s\n", message);
     printf("[");
-    for (int i=0; i<size; i++) {
+    for (i=0; i<size; i++) {
         printf(" %i ", array[i]);        
     }    
     printf("]\n");
 }
 
-void insertionSort(int *elements , int size) {  
+void insertionSort(int *elements , size_t size) {  
     int j, i;
     for (i=1; i<size; i++) {
       int current = elements[i];

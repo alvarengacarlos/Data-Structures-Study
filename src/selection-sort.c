@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void populateArray(int *array, int size);
-void writeArray(int *array, int size, char *message);
-void selectionSort(int *elements , int size);
+void populateArray(int *array, size_t size);
+void writeArray(int *array, size_t size, char *message);
+void selectionSort(int *elements , size_t size);
 
 int main() {
     const int arraySize = 6;
@@ -15,27 +15,29 @@ int main() {
     return 1;
 }
 
-void populateArray(int *array, int size) {
-    int value = size;
-    for(int i=0; i<size; i++) {
+void populateArray(int *array, size_t size) {
+    int i, value = size;
+    for(i=0; i<size; i++) {
         array[i] = value--;
     }
 }
 
-void writeArray(int *array, int size, char *message) {    
+void writeArray(int *array, size_t size, char *message) {    
+    int i;
     printf("%s\n", message);
     printf("[");
-    for (int i=0; i<size; i++) {
+    for (i=0; i<size; i++) {
         printf(" %i ", array[i]);        
     }    
     printf("]\n");
 }
 
-void selectionSort(int *elements , int size) {
-    for (int i=0; i<size; i++) {
+void selectionSort(int *elements , size_t size) {
+    int i,j;
+    for (i=0; i<size; i++) {
         //search minor element
         int positionOfTheMinorElement = i;
-        for (int j=(i+1); j<size; j++) {
+        for (j=(i+1); j<size; j++) {
             if (elements[j] < elements[positionOfTheMinorElement]) {
                 positionOfTheMinorElement = j;
             }            

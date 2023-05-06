@@ -3,7 +3,7 @@
 #include "./cube.h"
 
 int main() {
-    Cube *cube = buildCube(10);
+    struct cube *cube = buildCube(10);
 
     printf("Area: %.2f \n", area(cube));
     printf("Volume: %.2f \n", volume(cube));
