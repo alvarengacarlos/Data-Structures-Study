@@ -13,7 +13,7 @@ __Note__: For compile the codes and run them, you should execute the commands in
 |:---|:---|
 |Bubble Sort|`gcc src/bubble-sort.c -o ./bin/bubble-sort.exe`|
 |Selection Sort|`gcc src/selection-sort.c -o ./bin/selection-sort.exe`|
-|Insertion Sort|`gcc src/util/array-util.c src/insertion-sort.c -o ./bin/insertion-sort.exe`|
+|Insertion Sort|`gcc src/insertion-sort.c -o ./bin/insertion-sort.exe`|
 
 ### __Technique__
 |Technique Name|Command to Compile|
