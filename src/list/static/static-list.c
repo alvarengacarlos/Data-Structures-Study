@@ -3,118 +3,118 @@
 #include <stdio.h>
 
 #include "./static-list.h"
-#include "../../util/status-code-util.h"
 
-bool isListFull(TaskList *taskList);
-bool isListEmpty(TaskList *taskList);
+#define LIST_SIZE 10
 
-struct taskList {
-    int length;
-    Task tasks[LIST_SIZE];
+struct list {
+    int size;
+    struct item items[LIST_SIZE];
 };
 
-TaskList* buildTaskList() {
-    TaskList *newList = (TaskList*) malloc(sizeof(TaskList));
+bool isListFull(struct list *list);
+bool isListEmpty(struct list *list);
+
+struct list* buildList() {
+    struct list *newList = (struct list*) malloc(sizeof(struct list));
     if (newList == NULL) {
-        exit(ERROR);
+        exit(1);
     }
 
-    newList->length = 0;
+    newList->size = 0;
 
     return newList;
 }
 
-int push(TaskList *taskList, Task task) {
-    if (isListFull(taskList)) {
-        return ERROR;
+int push(struct list *list, struct item item) {
+    if (isListFull(list)) {
+        return 1;
     }
 
-    taskList->tasks[taskList->length] = task;
-    taskList->length += 1;
+    list->items[list->size] = item;
+    list->size += 1;
 
-    return SUCCESS;
+    return 0;
 }
 
-bool isListFull(TaskList *taskList) {
-    if (taskList->length == LIST_SIZE) {
+bool isListFull(struct list *list) {
+    if (list->size == LIST_SIZE) {
         return true;
     }
     
     return false;
 }
 
-int pop(TaskList *taskList) {
-    if (isListEmpty(taskList)) {
-        return ERROR;
+int pop(struct list *list) {
+    if (isListEmpty(list)) {
+        return 1;
     }
 
-    taskList->length -= 1;
+    list->size -= 1;
 
-    return SUCCESS;
+    return 0;
 }
 
-bool isListEmpty(TaskList *taskList) {
-    if (taskList->length == 0) {
+bool isListEmpty(struct list *list) {
+    if (list->size == 0) {
         return true;
     }
 
-    return false;   
+    return false;
 }
 
-int unshift(TaskList *taskList, Task task) {
-    if (isListFull(taskList)) {
-        return ERROR;
+int unshift(struct list *list, struct item item) {
+    if (isListFull(list)) {
+        return 1;
     }
 
-    for (int i=taskList->length; i>0; i--) {
-        taskList->tasks[i] = taskList->tasks[i-1];
+    int i;
+    for (i=list->size; i>0; i--) {
+        list->items[i] = list->items[i-1];
     }
 
-    taskList->tasks[0] = task;
-    taskList->length += 1;
+    list->items[0] = item;
+    list->size += 1;
 
-    return SUCCESS;
+    return 0;
 }
 
-int shift(TaskList *taskList) {
-    if (isListEmpty(taskList)) {
-        return ERROR;
+int shift(struct list *list) {
+    if (isListEmpty(list)) {
+        return 1;
     }
 
-    for (int i=0; i<taskList->length; i++) {
-        taskList->tasks[i] = taskList->tasks[i+1];
+    int i;
+    for (i=0; i<list->size; i++) {
+        list->items[i] = list->items[i+1];
     }
     
-    taskList->length -= 1;
+    list->size -= 1;
 
-    return SUCCESS;
+    return 0;
 }
 
-Task buildTask() {
-    Task task;
-    printf("What is the task name? \n");
+struct item buildItem() {
+    struct item item;
+    printf("What is the item name? \n");
     setbuf(stdin, NULL);
-    fgets(task.name, TASK_NAME_SIZE, stdin);
+    fgets(item.name, ITEM_NAME_SIZE, stdin);
 
-    printf("What is the task description? \n");
+    printf("What is the item description? \n");
     setbuf(stdin, NULL);
-    fgets(task.description, TASK_DESCRIPTION_SIZE, stdin);
+    fgets(item.description, ITEM_DESCRIPTION_SIZE, stdin);
     
-    return task;
+    return item;
 }
 
 
-void printTasksList(TaskList *taskList) {
-    for (int i=0; i<taskList->length; i++) {
+void printList(struct list *list) {
+    int i;
+    for (i=0; i<list->size; i++) {
         printf(":----------------------------------------:\n");
-        printf("Task name: %s \n", taskList->tasks[i].name);
-        printf("Task description: %s \n", taskList->tasks[i].description);
+        printf("Item name: %s \n", list->items[i].name);
+        printf("Item description: %s \n", list->items[i].description);
     }
     printf(":----------------------------------------:\n");
-    printf("Task list size: %d \n", getListSize(taskList));
+    printf("List size: %d \n", list->size);
     printf(":----------------------------------------:\n");
-}
-
-int getListSize(TaskList *taskList) {
-    return taskList->length;
 }

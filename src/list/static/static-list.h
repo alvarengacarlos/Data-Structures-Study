@@ -1,18 +1,15 @@
-#define LIST_SIZE 10
-#define TASK_NAME_SIZE 50
-#define TASK_DESCRIPTION_SIZE 255
+#define ITEM_NAME_SIZE 50
+#define ITEM_DESCRIPTION_SIZE 200
 
-typedef struct taskList TaskList;
-typedef struct {
-    char name[TASK_NAME_SIZE];
-    char description[TASK_DESCRIPTION_SIZE];
-} Task;
+struct item {
+    char name[ITEM_NAME_SIZE];
+    char description[ITEM_DESCRIPTION_SIZE];
+};
 
-TaskList* buildTaskList();
-int push(TaskList *list, Task task);
-int pop(TaskList *list);
-int unshift(TaskList *list, Task task);
-int shift(TaskList *list);
-int getListSize(TaskList *list);
-Task buildTask();
-void printTasksList(TaskList *list);
+struct list* buildList();
+int push(struct list*, struct item);
+int pop(struct list *list);
+int unshift(struct list*, struct item);
+int shift(struct list*);
+struct item buildItem();
+void printList(struct list*);

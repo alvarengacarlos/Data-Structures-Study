@@ -2,43 +2,42 @@
 #include <stdlib.h>
 
 #include "./static-list.h"
-#include "../../util/status-code-util.h"
 
 int main() {
     int option = 0;
     
-    TaskList *taskList = buildTaskList();
+    struct list *list = buildList();
 
     do {
         printf("0-Exit \n");
-        printf("1-Push task \n");
-        printf("2-Pop task \n");
-        printf("3-Unshift task \n");
-        printf("4-Shift task \n");
+        printf("1-Add item in the end \n");
+        printf("2-Remove last item \n");
+        printf("3-Add item in the start \n");
+        printf("4-Remove first item \n");
         printf("5-Print list \n");
         scanf("%d", &option);
 
         switch (option) {
             case 0:
-                exit(SUCCESS);
+                exit(0);
                 break;
             case 1:
-                push(taskList, buildTask());
+                push(list, buildItem());
                 break;
             case 2:                
-                pop(taskList);
+                pop(list);
                 break;
             case 3:               
-                unshift(taskList, buildTask());
+                unshift(list, buildItem());
                 break;
             case 4:
-                shift(taskList);
+                shift(list);
                 break;
             case 5:
-                printTasksList(taskList);
+                printList(list);
                 break;
         }
     } while(option);
 
-    return SUCCESS;
+    return 0;
 }
