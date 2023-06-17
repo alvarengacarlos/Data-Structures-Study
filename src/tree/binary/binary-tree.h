@@ -1,0 +1,11 @@
+struct tree* buildTree();
+int addChild(int, struct tree*);
+int destroyTree(struct tree*);
+bool isEmptyTree(struct tree*);
+int countNodes(struct tree*);
+int getHight(struct tree*);
+int preOrder(struct tree*);
+int inOrder(struct tree*);
+int afterOrder(struct tree*);
+int removeElement(int, struct tree*);
+int searchElement(int, struct tree*);

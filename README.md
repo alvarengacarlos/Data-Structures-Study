@@ -26,5 +26,11 @@ __Note__: For compile the codes and run them, you should execute the commands in
 |Static List|`gcc ./src/list/static/main.c ./src/list/static/static-list.c  -o ./bin/static-list.exe`|
 |Dynamic List|`gcc ./src/list/dynamic/main.c ./src/list/dynamic/dynamic-list.c  -o ./bin/dynamic-list.exe`|
 |Circular Dynamic List|`gcc ./src/list/circular/main.c ./src/list/circular/circular-list.c  -o ./bin/circular-list.exe`|
+
+### __Tree__
+|Name|Command to Compile|
+|:---|:---|
+|Binary Tree|`gcc ./src/tree/binary/main.c ./src/tree/binary/binary-tree.c  -o ./bin/binary-tree.exe`|
+
 ## __References__
 Backes, André Ricardo. Estrutura de Dados descomplicada: em linguagem C. 1. ed - Rio de Janeiro: Elsevier, 2016
